@@ -1,31 +1,31 @@
-<div data-controller="users-by-email-auth" class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-  <div class="flex">
-    <div class="flex-none cursor-pointer" data-modal-target="closeButton">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-    </div>
-    <div class="grow">
-        <h3 class="text-md font-medium leading-6 text-gray-900 text-center mb-4" id="modal-title">Log in or Sign up</h3>
-    </div>
-  </div>
-
-  <div class="relative">
-      <div class="absolute inset-0 flex items-center" aria-hidden="true">
-      <div class="w-full border-t border-gray-300"></div>
+<div data-controller="users-by-email-auth" >
+  <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+    <div class="flex">
+      <div class="flex-none cursor-pointer" data-modal-target="closeButton">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
       </div>
+      <div class="grow">
+          <h3 class="text-md font-medium leading-6 text-gray-900 text-center mb-4" id="modal-title">Log in or Sign up</h3>
+      </div>
+    </div>
+    <div class="relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div class="w-full border-t border-gray-300"></div>
+        </div>
+    </div>
+    <div class="pt-4">
+      <h4 class="text-md font-medium leading-6 text-gray-900" id="modal-title">Welcome to Airbnb</h4>
+      <div class="mt-6 border border-gray-300 rounder-md px-3 py-2 shadom-sm focus-within:ring-1 focus-within:ring-indigo-600">
+          <label for="emial" class="block text-xs font-medium text-gray-900">Email</label>
+          <input data-users-by-email-auth-target="email" type="text" name="email" id="email" class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="test@gmail.com">
+      <div>
+    </div>
   </div>
-
-  <div class="pt-4">
-  <h4 class="text-md font-medium leading-6 text-gray-900" id="modal-title">Welcome to Airbnb</h4>
-  <div class="mt-6 border border-gray-300 rounder-md px-3 py-2 shadom-sm focus-within:ring-1 focus-within:ring-indigo-600">
-      <label for="emial" class="block text-xs font-medium text-gray-900">Email</label>
-      <input data-users-by-email-auth-target="email" type="text" name="email" id="email" class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="test@gmail.com">
-  <div>
+  <div class="my-5 sm:md-6">
+    <button data-users-by-email-auth-target="submit" type="button" class="inline-flex w-full justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Continue</button>
   </div>
-</div>
-<div class="my-5 sm:md-6">
-  <button data-users-by-email-auth-target="submit" type="button" class="inline-flex w-full justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Continue</button>
 </div>
 
 <div class="relative">
