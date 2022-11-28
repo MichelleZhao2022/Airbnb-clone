@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Api::UsersByEmails", type: :request do
-  describe "GET show" do
+RSpec.describe 'Api::UsersByEmails', type: :request do
+  describe 'GET show' do
     let(:header) do
-      {"ACCEPT" => "application/js"}
+      { 'ACCEPT' => 'application/js' }
     end
 
-    context "user exist" do
-      it "is successful" do
+    context 'user exist' do
+      it 'is successful' do
         user = create(:user)
-        get api_users_by_email_path, params:{email: user.email}, headers: header
+        get api_users_by_email_path, params: { email: user.email }, headers: header
         expect(response).to be_successful
       end
     end
 
-    context "user does not exist" do
-      it "is not found" do
-        get api_users_by_email_path, params:{email: "test@example.com"}, headers: header
+    context 'user does not exist' do
+      it 'is not found' do
+        get api_users_by_email_path, params: { email: 'test@example.com' }, headers: header
         expect(response.status).to be 404
       end
     end
