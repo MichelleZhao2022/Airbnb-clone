@@ -7,7 +7,7 @@ RSpec.describe "Api::UsersByEmails", type: :request do
     end
 
     context "user exist" do
-      xit "is successful" do
+      it "is successful" do
         user = create(:user)
         get api_users_by_email_path, params:{email: user.email}, headers: header
         expect(response).to be_successful
@@ -15,7 +15,7 @@ RSpec.describe "Api::UsersByEmails", type: :request do
     end
 
     context "user does not exist" do
-      xit "is not found" do
+      it "is not found" do
         get api_users_by_email_path, params:{email: "test@example.com"}, headers: header
         expect(response.status).to be 404
       end

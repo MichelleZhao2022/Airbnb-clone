@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ['openUserMenu', 'userAuthlink'];
   
   connect() {
+    console.log('hi header')
     this.openUserMenuTarget.addEventListener('click', this.toggleDrowdownMenu);
 
     this.userAuthlinkTargets.forEach((link) => {
