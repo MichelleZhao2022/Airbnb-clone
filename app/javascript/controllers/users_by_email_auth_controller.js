@@ -9,7 +9,6 @@ export default class extends Controller {
       e.preventDefault();
 
       if(this.emailTarget.value.length === 0){
-        console.log('email', 'empty')
       }else{
         axios.get('/api/users_by_email', {
           params: {
