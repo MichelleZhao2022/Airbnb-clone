@@ -7,4 +7,10 @@ class Property < ApplicationRecord
   validates :address_1, presence: true
   validates :city, presence: true
   validates :country, presence: true
+
+  has_many_attached :images
+
+  def default_image
+    images.first
+  end
 end
