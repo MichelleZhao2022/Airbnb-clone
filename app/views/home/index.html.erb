@@ -10,7 +10,7 @@
       </div>
       <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900"><%= property.city %>, <%= property.country %></p>
       <p class="pointer-events-none block text-sm font-medium text-gray-500">Dec. 1 - 7</p>
-      <p class="pointer-events-none block text-sm font-medium text-gray-500">$99 per day</p>
+      <p class="pointer-events-none block text-sm font-medium text-gray-500">$<%= property.price_cents %> per day</p>
     </li>
     <% end %>
   </ul>
