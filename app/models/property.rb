@@ -12,6 +12,8 @@ class Property < ApplicationRecord
   has_many :reviews, as: :reviewable
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
+  has_many :reservations, dependent: :destroy
+  has_many :reserved_users, through: :reservations, source: :user
 
   def default_image
     images.first
@@ -19,6 +21,7 @@ class Property < ApplicationRecord
 
   def favorited_by?(user)
     return if user.nil?
+
     favorited_users.include?(user)
   end
 end
