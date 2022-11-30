@@ -1,9 +1,8 @@
-# frozen_string_literal: true
-
 # forzen_string_literal: true
 
 module Api
   class FavoritesController < ApplicationController
+    protect_from_forgery with: :null_session
     # before_action :authenticate_user!
 
     def create
