@@ -4,7 +4,8 @@ import axios from 'axios';
 export default class extends Controller {
   HEADERS = { 'ACCEPT': 'application/json' }
 
-  favorite() {
+  favorite(e) {
+    e.preventDefault()
     // if(this.element.dataset.userLoggedin === 'false'){
     //   return document.querySelector('[data-header-target="userAuthLink"]').click();
     // }
