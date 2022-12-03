@@ -1,0 +1,98 @@
+<div class="mt-4 lg:row-span-3 lg:mt-0" 
+data-controller="reservation-component"
+data-default-checkin-date="<%= Date.tomorrow.to_formatted_s(:nz_short_date) %>"
+data-default-checkout-date="<%= (Date.tomorrow + 1.day).to_formatted_s(:nz_short_date) %>">
+  <h2 class="sr-only">Product information</h2>
+  <p class="text-3xl tracking-tight text-gray-900"><%= humanized_money_with_symbol(@property.price_cents) %> per day</p>
+
+  <!-- Reviews -->
+  <div class="mt-6">
+    <h3 class="sr-only">Reviews</h3>
+    <div class="flex items-center">
+      <div class="flex items-center">
+        <!--
+          Heroicon name: mini/star
+
+          Active: "text-gray-900", Default: "text-gray-200"
+        -->
+        <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+        </svg>
+
+        <!-- Heroicon name: mini/star -->
+        <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+        </svg>
+
+        <!-- Heroicon name: mini/star -->
+        <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+        </svg>
+
+        <!-- Heroicon name: mini/star -->
+        <svg class="text-gray-900 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+        </svg>
+
+        <!-- Heroicon name: mini/star -->
+        <svg class="text-gray-200 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <p class="sr-only">4 out of 5 stars</p>
+      <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+    </div>
+  </div>
+
+  <form class="mt-10">
+    <div class="isolate -space-y-px rounded-md shadow-sm">
+      <div class="relative rounded-md rounded-b-none border border-gray-300 px-3 py-2 focus-within:z-10 focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
+          <label for="name" class="block text-xs font-medium text-gray-900">Check-in</label>
+          <input type="text" 
+            name="name" 
+            id="name" 
+            class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" 
+            data-reservation-component-target="checkin">
+      </div>
+      <div class="relative rounded-md rounded-t-none border border-gray-300 px-3 py-2 focus-within:z-10 focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
+          <label for="job-title" class="block text-xs font-medium text-gray-900">Checkout</label>
+          <input type="text" 
+          name="job-title" 
+          id="job-title" 
+          class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
+          data-reservation-component-target="checkout">
+      </div>
+    </div>
+    <div class="py-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:py-5">
+      <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+        <ul role="list" class="divide-y divide-gray-200 rounded-md border-gray-200">
+          <li class="flex items-center justify-between py-3 pr-4 text-sm">
+            <div class="flex w-0 flex-1 items-center">
+              <span class="ml-2 w-0 flex-1 truncate"><%= humanized_money_with_symbol(@property.price_cents) %> </span>
+            </div>
+            <div class="ml-4 flex-shrink-0">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">$5.0</a>
+            </div>
+          </li>
+          <li class="flex items-center justify-between py-3 pr-4 text-sm">
+            <div class="flex w-0 flex-1 items-center">
+              <span class="ml-2 w-0 flex-1 truncate">Cleaning fee</span>
+            </div>
+            <div class="ml-4 flex-shrink-0">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"><%= humanized_money_with_symbol Property::CLEANING_FEE_MONEY %></a>
+            </div>
+          </li>
+          <li class="flex items-center justify-between py-3 pr-4 text-sm">
+            <div class="flex w-0 flex-1 items-center">
+              <span class="ml-2 w-0 flex-1 truncate">Total</span>
+            </div>
+            <div class="ml-4 flex-shrink-0">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">$200.0</a>
+            </div>
+          </li>
+        </ul>
+      </dd>
+    </div>
+    <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Book</button>
+  </form>
+</div>

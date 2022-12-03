@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Property < ApplicationRecord
+  CLEANING_FEE = 5_00
+  CLEANING_FEE_MONEY = Money.new(CLEANING_FEE)
+
   validates :name, presence: true
   validates :headline, presence: true
   validates :description, presence: true
