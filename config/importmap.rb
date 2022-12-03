@@ -13,3 +13,4 @@ pin '#lib/adapters/http.js', to: 'https://ga.jspm.io/npm:axios@0.27.2/lib/adapte
 pin '#lib/defaults/env/FormData.js', to: 'https://ga.jspm.io/npm:axios@0.27.2/lib/helpers/null.js'
 pin 'buffer', to: 'https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.27/nodelibs/browser/buffer.js'
 pin 'vanillajs-datepicker', to: 'https://ga.jspm.io/npm:vanillajs-datepicker@1.2.0/js/main.js'
+pin 'lodash', to: 'https://ga.jspm.io/npm:lodash@4.17.21/lodash.js'
