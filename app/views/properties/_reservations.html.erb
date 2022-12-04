@@ -2,7 +2,8 @@
 data-controller="reservation-component"
 data-default-checkin-date="<%= Date.tomorrow.to_formatted_s(:nz_short_date) %>"
 data-default-checkout-date="<%= (Date.tomorrow + 1.day).to_formatted_s(:nz_short_date) %>"
-data-daily-price="<%= humanized_money(@property.price_cents) %>">
+data-daily-price="<%= humanized_money(@property.price_cents) %>"
+data-cleaning-fee="<%= humanized_money(Property::CLEANING_FEE_MONEY) %>">
   <h2 class="sr-only">Product information</h2>
   <p class="text-3xl tracking-tight text-gray-900"><%= humanized_money_with_symbol(@property.price_cents) %> per day</p>
 
@@ -48,17 +49,17 @@ data-daily-price="<%= humanized_money(@property.price_cents) %>">
   <form class="mt-10">
     <div class="isolate -space-y-px rounded-md shadow-sm">
       <div class="relative rounded-md rounded-b-none border border-gray-300 px-3 py-2 focus-within:z-10 focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
-          <label for="name" class="block text-xs font-medium text-gray-900">Check-in</label>
+          <label for="checkin_date" class="block text-xs font-medium text-gray-900">Check-in</label>
           <input type="text" 
-            name="name" 
+            name="checkin_date" 
             id="name" 
             class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" 
             data-reservation-component-target="checkin">
       </div>
       <div class="relative rounded-md rounded-t-none border border-gray-300 px-3 py-2 focus-within:z-10 focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
-          <label for="job-title" class="block text-xs font-medium text-gray-900">Checkout</label>
+          <label for="checkout_date" class="block text-xs font-medium text-gray-900">Checkout</label>
           <input type="text" 
-          name="job-title" 
+          name="checkout_date" 
           id="job-title" 
           class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
           data-reservation-component-target="checkout">
@@ -69,10 +70,10 @@ data-daily-price="<%= humanized_money(@property.price_cents) %>">
         <ul role="list" class="divide-y divide-gray-200 rounded-md border-gray-200">
           <li class="flex items-center justify-between py-3 pr-4 text-sm">
             <div class="flex w-0 flex-1 items-center">
-              <span class="ml-2 w-0 flex-1 truncate"><%= humanized_money_with_symbol(@property.price_cents) %> * <span data-reservation-component-target="numberOfDays"></span> days</span>
+              <span class="ml-2 w-0 flex-1 truncate"><%= humanized_money_with_symbol(@property.price_cents) %> * <span data-reservation-component-target="numberOfDays">0</span> day</span>
             </div>
             <div class="ml-4 flex-shrink-0">
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">$<span data-reservation-component-target="dailyTotal"></span></a>
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">$<span data-reservation-component-target="dailyTotal">0.00</span></a>
             </div>
           </li>
           <li class="flex items-center justify-between py-3 pr-4 text-sm">
@@ -88,12 +89,15 @@ data-daily-price="<%= humanized_money(@property.price_cents) %>">
               <span class="ml-2 w-0 flex-1 truncate">Total</span>
             </div>
             <div class="ml-4 flex-shrink-0">
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">$200.0</a>
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">$<span data-reservation-component-target="total">0.00</span></a>
             </div>
           </li>
         </ul>
       </dd>
     </div>
-    <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Book</button>
+    <button type="submit"
+    data-submit-url="<%= new_property_reservation_path(@property) %>"
+    data-action="reservation-component#submitReservationComponent"
+    class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Book</button>
   </form>
 </div>
